@@ -4,6 +4,7 @@ export * from './tns-oauth-interfaces';
 
 export declare var instance: TnsOAuth.ITnsAuthHelper;
 export declare function initOffice365(options: TnsOAuth.ITnsOAuthOptionsOffice365): Promise<any>;
+export declare function initOffice365WebApp(options: TnsOAuth.ITnsOAuthOptionsOffice365WebApp): Promise<any>;
 export declare function initFacebook(options: TnsOAuth.ITnsOAuthOptionsFacebook): Promise<any>;
 export declare function initGoogle(options: TnsOAuth.ITnsOAuthOptionsGoogle): Promise<any>;
 export declare function initUaa(options: TnsOAuth.ITnsOAuthOptionsUaa): Promise<any>;

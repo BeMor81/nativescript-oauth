@@ -22,6 +22,7 @@ export interface ITnsOAuthCredentials {
     redirectUri: string;
     responseType?: string;
     scope: string;
+    loginHint?: string;
 }
 
 export interface ITnsOAuthCredentialsUaa extends ITnsOAuthCredentials {
@@ -41,6 +42,12 @@ export interface ITnsOAuthOptions {
 }
 
 export interface ITnsOAuthOptionsOffice365 extends ITnsOAuthOptions {
+}
+
+export interface ITnsOAuthOptionsOffice365WebApp extends ITnsOAuthOptions {
+    clientSecret: string;
+    tenant: string;
+    loginHint?: string;
 }
 
 export interface ITnsOAuthOptionsFacebook extends ITnsOAuthOptions {

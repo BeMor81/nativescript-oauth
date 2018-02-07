@@ -5,6 +5,7 @@
 import * as applicationModule from 'application';
 import * as utils from 'utils/utils';
 import { AuthHelperOffice365 } from './auth-helper-office365';
+import { AuthHelperOffice365WebApp } from './auth-helper-office365webapp';
 import { AuthHelperFacebook } from './auth-helper-facebook';
 import { AuthHelperGoogle } from './auth-helper-google';
 import { AuthHelperUaa } from './auth-helper-uaa';
@@ -27,6 +28,23 @@ export function initOffice365(options: TnsOAuth.ITnsOAuthOptionsOffice365): Prom
             resolve(instance);
         } catch (ex) {
             console.log("Error in AuthHelperOffice365.init: " + ex);
+            reject(ex);
+        }
+    });
+}
+
+export function initOffice365WebApp(options: TnsOAuth.ITnsOAuthOptionsOffice365WebApp): Promise<any> {
+    return new Promise(function (resolve, reject) {
+        try {
+            if (instance !== null) {
+                reject("You already ran init");
+                return;
+            }
+
+            instance = new AuthHelperOffice365WebApp(options.tenant, options.clientId, options.clientSecret, options.scope, options.loginHint)
+            resolve(instance);
+        } catch (ex) {
+            console.log("Error in AuthHelperOffice365WebApp.init: " + ex);
             reject(ex);
         }
     });
