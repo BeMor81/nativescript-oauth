@@ -22,6 +22,7 @@ export interface ITnsOAuthCredentials {
     redirectUri: string;
     responseType?: string;
     scope: string;
+    resource?: string; 
     loginHint?: string;
 }
 
@@ -45,8 +46,9 @@ export interface ITnsOAuthOptionsOffice365 extends ITnsOAuthOptions {
 }
 
 export interface ITnsOAuthOptionsOffice365WebApp extends ITnsOAuthOptions {
-    clientSecret: string;
     tenant: string;
+    resource?: string;
+    clientSecret?: string;
     loginHint?: string;
 }
 

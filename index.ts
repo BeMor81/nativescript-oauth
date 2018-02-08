@@ -41,7 +41,7 @@ export function initOffice365WebApp(options: TnsOAuth.ITnsOAuthOptionsOffice365W
                 return;
             }
 
-            instance = new AuthHelperOffice365WebApp(options.tenant, options.clientId, options.clientSecret, options.scope, options.loginHint)
+            instance = new AuthHelperOffice365WebApp(options.tenant, options.clientId, options.scope, options.resource, options.clientSecret, options.loginHint)
             resolve(instance);
         } catch (ex) {
             console.log("Error in AuthHelperOffice365WebApp.init: " + ex);

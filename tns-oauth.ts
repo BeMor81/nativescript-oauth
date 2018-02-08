@@ -94,6 +94,7 @@ export function getAuthUrl(credentials: TnsOAuthModule.ITnsOAuthCredentials): st
         '&scope=' + credentials.scope +
         '&response_mode=query' +
         '&nonce=' + utils.newUUID() +
+        (credentials.resource ? '&resource=' + encodeURIComponent(credentials.resource) : '') +
         '&state=abcd';
 }
 
@@ -312,7 +313,6 @@ class TnsOAuth {
         if (this._clientSecret && this._clientSecret != '') {
             params['client_secret'] = this._clientSecret;
         }
-
         var codeParam = (params.grant_type === 'refresh_token') ? 'refresh_token' : 'code';
         params[codeParam] = code;
 
